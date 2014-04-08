@@ -44,7 +44,7 @@ module CapistranoResque
         def stop_command
           "if [ -e #{current_path}/tmp/pids/resque_work_1.pid ]; then \
            for f in 1 2 3; \
-             do pid=`cat #{current_path}/tmp/pids/resque_work_$f`; #{try_sudo} kill -s #{resque_kill_signal} $pid \
+             do pid=`cat #{current_path}/tmp/pids/resque_work_$f.pid; #{try_sudo} kill -s #{resque_kill_signal} $pid \
              && rm $f ;done \
            ;fi"
         end
